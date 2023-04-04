@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangchao.mybatis.mapper.UserMapper">
+
+    <!--int insertUser();-->
+    <insert id="insertUser">
+        insert into t_user values(null, '张三', '123456', 23, '男', 'zhang_shan@qq.com')
+    </insert>
+
+    <!--void updatePassword();-->
+    <update id="updatePassword">
+        update t_user set password = 'zhangshan123' where id = 1
+    </update>
+
+    <!--
+        查询功能的标签必须设置resultType或者resultMap
+        resultType：设置默认的映射关系
+        resultMap：设置自定义的映射关系
+    -->
+    <!--User getUserById();-->
+    <select id="getUserById" resultType="com.wangchao.mybatis.pojo.User">
+        select * from t_user where id = 1
+    </select>
+
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="com.wangchao.mybatis.pojo.User">
+        select * from t_user
+    </select>
+</mapper>

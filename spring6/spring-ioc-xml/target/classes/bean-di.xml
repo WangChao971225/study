@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1.set方法注入-->
+    <bean id="book" class="com.wangchao.iocxml.di.Book">
+        <property name="bname" value="JavaWeb"></property>
+        <property name="author" value="尚硅谷"></property>
+    </bean>
+
+    <!--2.构造器注入-->
+    <bean id="bookCon" class="com.wangchao.iocxml.di.Book">
+        <constructor-arg name="bname" value="Vue3.0"></constructor-arg>
+        <constructor-arg name="author" value="黑马"></constructor-arg>
+    </bean>
+
+    <!--以上两种都是注入字面量-->
+
+    <!--特殊值处理-->
+    <!--2.NULL值-->
+    <bean id="bookNull" class="com.wangchao.iocxml.di.Book">
+        <property name="bname" value="Spring6"></property>
+        <property name="author" value="尚硅谷"></property>
+        <property name="prices">
+            <null/>
+        </property>
+    </bean>
+
+    <!--3.XML实体-->
+    <bean id="bookXmlSymbol" class="com.wangchao.iocxml.di.Book">
+        <property name="bname" value="&lt;Springboot&gt;"></property>
+        <property name="author" value="黑马"></property>
+        <property name="prices" value="59"></property>
+    </bean>
+
+    <!--4.CDATA节-->
+    <bean id="bookCDATA" class="com.wangchao.iocxml.di.Book">
+        <property name="bname">
+            <value><![CDATA[<Mybatis>]]></value>
+        </property>
+        <property name="author" value="白马"></property>
+        <property name="prices" value="22"></property>
+    </bean>
+
+</beans>

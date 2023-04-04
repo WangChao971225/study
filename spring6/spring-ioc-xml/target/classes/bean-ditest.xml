@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    方式一：引用外部bean 方式注入对象
+        1. 创建两个类对象: dept 和 emp
+        2. 在emp的bean标签里面，使用property引入dept的bean
+    -->
+    <bean id="dept" class="com.wangchao.iocxml.ditest.Dept">
+        <property name="dname" value="开发部"></property>
+    </bean>
+
+    <bean id="emp" class="com.wangchao.iocxml.ditest.Emp">
+        <!--普通属性注入-->
+        <property name="ename" value="张三"></property>
+        <property name="age" value="26"></property>
+        <!--注入对象类型属性-->
+        <property name="dept" ref="dept"></property>
+    </bean>
+
+    <!--
+    方式二：内部bean 方式注入对象
+    -->
+    <bean id="emp2" class="com.wangchao.iocxml.ditest.Emp">
+        <!--普通属性注入-->
+        <property name="ename" value="李四"></property>
+        <property name="age" value="58"></property>
+        <!--通过 内部bean 注入对象类型属性-->
+        <property name="dept">
+            <bean id="dept2" class="com.wangchao.iocxml.ditest.Dept">
+                <property name="dname" value="安保部"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--
+    方式三：级联赋值
+    -->
+    <bean id="dept3" class="com.wangchao.iocxml.ditest.Dept">
+        <property name="dname" value="开发部"></property>
+    </bean>
+    <bean id="emp3" class="com.wangchao.iocxml.ditest.Emp">
+        <!--普通属性注入-->
+        <property name="ename" value="王五"></property>
+        <property name="age" value="50"></property>
+        <!--级联 注入对象类型属性-->
+        <property name="dept" ref="dept3"></property>
+        <!--级联赋值-->
+        <property name="dept.dname" value="管理部"></property>
+    </bean>
+</beans>

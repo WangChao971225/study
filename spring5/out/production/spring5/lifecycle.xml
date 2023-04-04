@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1 配置 lifeCycle 对象创建 -->
+    <!-- bean 标签中有属性 init-method: 初始化方法  destroy-method: 销毁方法 -->
+    <bean id="lifeCycle" class="com.wangchao.spring5.demo1.bean.LifeCycle"
+          init-method="initMethod" destroy-method="destroyMethod">
+        <property name="id" value="1001"></property>
+    </bean>
+
+    <!-- 后置处理器 -->
+    <bean id="postProcess" class="com.wangchao.spring5.demo1.bean.PostProcess"></bean>
+
+</beans>

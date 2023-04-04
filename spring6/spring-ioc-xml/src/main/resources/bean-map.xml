@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Map类型属性-->
+    <bean id="teacher1" class="com.wangchao.iocxml.dimap.Teacher">
+        <property name="teacherId" value="1001"></property>
+        <property name="teacherName" value="宋红康"></property>
+    </bean>
+    <bean id="teacher2" class="com.wangchao.iocxml.dimap.Teacher">
+        <property name="teacherId" value="1002"></property>
+        <property name="teacherName" value="马士兵"></property>
+    </bean>
+
+    <bean id="student" class="com.wangchao.iocxml.dimap.Student">
+        <property name="studentId" value="001"></property>
+        <property name="studentName" value="马化腾"></property>
+        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>1001</value>
+                    </key>
+                    <ref bean="teacher1"></ref>
+                </entry>
+                <entry>
+                    <key>
+                        <value>1002</value>
+                    </key>
+                    <ref bean="teacher2"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

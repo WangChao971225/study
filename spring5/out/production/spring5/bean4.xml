@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 级联赋值 -->
+    <!-- 第一种方式：通过给外部bean赋值实现 -->
+    <bean id="emp" class="com.wangchao.spring5.demo1.bean.Emp">
+        <!-- 普通属性 -->
+        <property name="empName" value="张三"></property>
+        <property name="gender" value="男"></property>
+        <!-- 对象类型属性 -->
+        <property name="dept" ref="dept"></property>
+        <property name="dept.deptName" value="管理部"></property>
+    </bean>
+    <bean id="dept" class="com.wangchao.spring5.demo1.bean.Dept">
+       <!-- <property name="deptName" value="开发部"></property>-->
+    </bean>
+</beans>

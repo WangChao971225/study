@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--集合类型属性-->
+    <bean id="dept" class="com.wangchao.iocxml.ditest.Dept">
+        <property name="dname" value="开发部"></property>
+        <property name="empList">
+            <list>
+                <ref bean="emp1"></ref>
+                <ref bean="emp2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <!--员工1-->
+    <bean id="emp1" class="com.wangchao.iocxml.ditest.Emp">
+        <!--普通属性-->
+        <property name="ename" value="李白"></property>
+        <property name="age" value="48"></property>
+        <!--对象类型属性-->
+        <property name="dept" ref="dept"></property>
+        <!--数组类型属性-->
+        <property name="loves">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>写诗</value>
+            </array>
+        </property>
+    </bean>
+    <!--员工2-->
+    <bean id="emp2" class="com.wangchao.iocxml.ditest.Emp">
+        <!--普通属性-->
+        <property name="ename" value="杜甫"></property>
+        <property name="age" value="36"></property>
+        <!--对象类型属性-->
+        <property name="dept" ref="dept"></property>
+        <!--数组类型属性-->
+        <property name="loves">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>写词</value>
+            </array>
+        </property>
+    </bean>
+</beans>

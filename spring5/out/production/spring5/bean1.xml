@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1 配置 User 对象创建 -->
+    <bean id="user" class="com.wangchao.spring5.demo1.User"></bean>
+
+    <!--2 setter方法注入属性 -->
+    <bean id="book" class="com.wangchao.spring5.demo1.Book">
+        <!-- 使用property完成属性注入 -->
+        <!-- name: 类中的属性名 value: 向属性注入的值 -->
+        <property name="bname" value="我们仨"></property>
+        <property name="bauthor" value="杨绛"></property>
+    </bean>
+
+    <!--3 有参数构造注入属性 -->
+    <bean id="orders" class="com.wangchao.spring5.demo1.Orders">
+        <constructor-arg name="oname" value="电脑"></constructor-arg>
+        <constructor-arg name="oaddress" value="北京"></constructor-arg>
+    </bean>
+</beans>

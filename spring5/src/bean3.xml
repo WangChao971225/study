@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 内部Bean -->
+    <bean id="emp" class="com.wangchao.spring5.demo1.bean.Emp">
+        <!-- 普通属性 -->
+        <property name="empName" value="张三"></property>
+        <property name="gender" value="男"></property>
+        <!-- 对象类型属性 -->
+        <property name="dept">
+            <bean id="dept" class="com.wangchao.spring5.demo1.bean.Dept">
+                <property name="deptName" value="安保部"></property>
+            </bean>
+        </property>
+    </bean>
+</beans>
